@@ -1,0 +1,53 @@
+/*******************************************************************************
+*
+*    Projeto Piano com Buzzer
+*
+*******************************************************************************/
+const int ledpino1 = 13;
+const int ledpino2 = 12;
+const int ledpino3 = 11;
+const int botaoA = 4;
+const int botaoB = 3;
+const int botaoC = 2;
+const int som = 9;
+int tom = 0;
+void setup() {
+    pinMode(ledpino1, OUTPUT); //pino saida
+    pinMode(ledpino2, OUTPUT); //pino saida
+    pinMode(ledpino3, OUTPUT); //pino saida
+    pinMode(som, OUTPUT); // pino de saída do arduino
+    pinMode(botaoA, INPUT); //pino do botão é entrada
+    pinMode(botaoB, INPUT); //pino do botão é entrada
+    pinMode(botaoC, INPUT); //pino do botão é entrada
+}
+
+void loop() 
+{
+  if(digitalRead(botaoA)== HIGH){
+        digitalWrite (som, HIGH);
+    	tom = 100;
+    	digitalWrite (ledpino1, HIGH);
+  } else{
+    	digitalWrite (som, LOW);
+    	digitalWrite (ledpino1, LOW);
+  }
+
+  if(digitalRead(botaoB)== HIGH){
+    	digitalWrite (som, HIGH);
+    	tom = 200;
+    	digitalWrite (ledpino2, HIGH);
+  } else{
+    	digitalWrite (som, LOW);
+    	digitalWrite (ledpino2, LOW);
+  }
+  
+ 	if(digitalRead(botaoC)== HIGH){
+    	digitalWrite (som, HIGH);
+    	tom = 300;
+    	digitalWrite (ledpino3, HIGH);
+  } else{
+    	digitalWrite (som, LOW);
+    	digitalWrite (ledpino3, LOW);
+  }
+
+}
